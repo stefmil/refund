@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="final">
-      <span>Iznos:</span> <span>1500 din</span>
-    </div>
-  );
+export default class Final extends React.Component {
+  render() {
+      const {refund} = this.props;
+    return (
+        <div className="final">
+          <span>Iznos:</span> <span>{refund} din</span>
+        </div>
+    );
+  }
 }
-
-export default App;

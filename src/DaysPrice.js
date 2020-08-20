@@ -1,14 +1,22 @@
 import React from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="daysPrice">
-      <span>Cena dolaska: </span> <span>1500 din</span>
-      <span>Cena odsustva: </span> <span>750 din</span>
+export default class DaysPrice extends React.Component {
 
-    </div>
-  );
+    constructor(props) {
+        super(props);
+        this.state = {
+            startDate: new Date()
+        };
+    }
+
+  render() {
+    const {absent} = this.props;
+    return (
+        <div className="daysPrice">
+
+          <span>Broj odsustva: </span> <span>{absent}</span>
+        </div>
+    );
+  }
 }
-
-export default App;

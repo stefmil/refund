@@ -1,26 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import FixedVars from './FixedVars';
-import DaysVars from './DaysVars';
-import DaysPrice from './DaysPrice';
-import Final from './Final';
 import * as serviceWorker from './serviceWorker';
+import Refund from './Refund'
 
 ReactDOM.render(
   <React.StrictMode>
-    <div className="conCol">
-      <div className="conRow">
-        <FixedVars />
-        <div className="line" />
-        <DaysVars />
-        <div className="line" />
-        <DaysPrice />
-      </div>
-      <div>
-        <Final />
-      </div>
-    </div>
+    <Refund/>
   </React.StrictMode>,
   document.getElementById('root')
 );
