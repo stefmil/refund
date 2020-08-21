@@ -5,13 +5,14 @@ import FixedVars from './FixedVars';
 import DaysVars from './DaysVars';
 import DaysPrice from './DaysPrice';
 import Final from './Final';
-import {numOfNonWorkingDays} from './util.js'
+import {numOfNonWorkingDays, numOfWorkingDays} from './util.js'
 
 export default class Refund extends React.Component {
 
     constructor(props){
         super(props);
         this.numOfNonWorkingDays = numOfNonWorkingDays.bind(this);
+        this.numOfWorkingDays = numOfWorkingDays.bind(this);
     }
 
     state = {
@@ -51,26 +52,6 @@ export default class Refund extends React.Component {
         var refund = (present*presentPrice + absent*absentPrice) - statePrice;
         this.setState({refund: refund.toFixed(2)});
 
-    };
-
-    numOfWorkingDays=(fromDate) => {
-        // ensure that the argument is a valid and past date
-        if(!fromDate||isNaN(fromDate)||this<fromDate){return -1;}
-
-        // clone date to avoid messing up original date and time
-        var frD=new Date(fromDate.getFullYear(), fromDate.getMonth(), 1),
-            numOfWorkingDays=0,
-            month=fromDate.getMonth();
-
-        // reset time portion
-        frD.setHours(0,0,0,0);
-
-        while(frD.getMonth() === month){
-            var day=frD.getDay();
-            if(day!==0&&day!==6){numOfWorkingDays++;}
-            frD.setDate(frD.getDate()+1);
-        }
-        return numOfWorkingDays;
     };
 
     render () {
